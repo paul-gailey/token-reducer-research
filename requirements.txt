@@ -1,0 +1,16 @@
+# Token-reduction research rig — pinned at install time below.
+# Core rig (proxy + metering)
+fastapi
+uvicorn
+httpx
+
+# Harness under test
+mini-swe-agent
+
+# Visualisation: Streamlit dashboard + Jupyter notebook
+pandas
+matplotlib
+plotly
+streamlit
+jupyter
+ipykernel
