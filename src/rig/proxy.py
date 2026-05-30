@@ -26,8 +26,9 @@ import httpx
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse, JSONResponse
 
-from transforms import ACTIVE_TRANSFORM, transform_name
-from meter import record_call
+from rig import rig_env  # noqa: F401 — loads .env into os.environ; MUST precede the rig imports below
+from rig.transforms import ACTIVE_TRANSFORM, transform_name
+from rig.meter import record_call
 
 # OpenAI-compatible upstream. Ollama's default is http://localhost:11434/v1
 UPSTREAM_BASE = os.environ.get("RIG_UPSTREAM_BASE", "http://localhost:11434/v1").rstrip("/")

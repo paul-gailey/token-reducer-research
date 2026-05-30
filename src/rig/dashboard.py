@@ -6,13 +6,13 @@ Three numbers to bring back:
   2. per-turn context growth                       (does the tail balloon?)
   3. divergence vs noise floor + token savings     (from ab_runner)
 
-Run:  .venv/bin/streamlit run dashboard.py
+Run:  PYTHONPATH=src .venv/bin/streamlit run src/rig/dashboard.py
 """
 
 import plotly.express as px
 import streamlit as st
 
-from rig_data import load_calls, load_ab, noise_floor
+from rig.rig_data import load_calls, load_ab, noise_floor
 
 st.set_page_config(page_title="Token-Reduction Rig (Ollama)", layout="wide")
 st.title("Token-Reduction Research Rig — Ollama / OpenAI")

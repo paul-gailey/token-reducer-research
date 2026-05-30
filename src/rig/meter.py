@@ -4,7 +4,7 @@ Meter — records every call's token usage (OpenAI / Ollama schema).
 Writes one JSONL line per call to rig_calls.jsonl. Local models report
 prompt_tokens (input) and completion_tokens (output); there is NO cache-read
 token, so cache_read_ratio is gone. The headroom signals here are context
-growth and token savings between transforms (see dashboard.py / analysis.ipynb).
+growth and token savings between transforms (see dashboard.py).
 
 Cost is ~0 for local models. PRICES is kept (default 0) so you can plug in
 hosted-model prices later if you A/B against a paid endpoint.

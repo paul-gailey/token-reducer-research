@@ -18,8 +18,8 @@ Capture requests by booting the proxy with RIG_DUMP=reqs.jsonl, then driving
 mini-swe-agent through it.
 
 Usage:
-  python3 ab_runner.py reqs.jsonl identity   # NOISE FLOOR first
-  python3 ab_runner.py reqs.jsonl dedup
+  PYTHONPATH=src python3 -m rig.ab_runner reqs.jsonl identity   # NOISE FLOOR first
+  PYTHONPATH=src python3 -m rig.ab_runner reqs.jsonl dedup
 """
 
 import json
@@ -29,7 +29,8 @@ import time
 import difflib
 import httpx
 
-from transforms import _REGISTRY
+from rig import rig_env  # noqa: F401 — loads .env into os.environ; MUST precede the module-level reads below
+from rig.transforms import _REGISTRY
 
 UPSTREAM_BASE = os.environ.get("RIG_UPSTREAM_BASE", "http://localhost:11434/v1").rstrip("/")
 API = f"{UPSTREAM_BASE}/chat/completions"
